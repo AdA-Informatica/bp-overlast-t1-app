@@ -1,6 +1,23 @@
 # Repository for Safe Space App Development
 
-## Code Contract
+## Hoe gebruik ik deze Repo?
+- Pull de repository
+- Open de folder in je editor
+- In de terminal voer je de volgende commands uit:
+```
+cd SafeSpace
+```
+```
+npm install
+```
+```
+npm start
+```
+- Vervolgens kun je met de IOS Simulator (Alleen voor Mac) of Expo Go app (Android & IOS) de app openen.
+<br>
+<br>
+
+# Code Contract
 
 ## Gemaakt door Paul Kros voor de ontwikkeling van project Safe Space
 

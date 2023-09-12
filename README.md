@@ -1,6 +1,13 @@
 # Repository for Safe Space App Development
 
-## Hoe gebruik ik deze Repo?
+## Quick Start Guide
+
+### Vereisten
+> - Node.js geinstalleerd
+> - Editor met ingebouwde terminal
+> - Android / IOS Telefoon
+
+### Setup
 - Pull de repository
 - Open de folder in je editor
 - In de terminal voer je de volgende commands uit:

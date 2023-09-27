@@ -3,26 +3,11 @@
 ## Quick Start Guide
 
 ### Vereisten
-> - Node.js geinstalleerd
-> - Editor met ingebouwde terminal
-> - Android / IOS Telefoon
+> - Android Studio
 
 ### Setup
 - Pull de repository
-- Open de folder in je editor
-- In de terminal voer je de volgende commands uit:
-```
-cd SafeSpace
-```
-```
-npm install
-```
-```
-npm start
-```
-- Vervolgens kun je met de IOS Simulator (Alleen voor Mac) of Expo Go app (Android & IOS) de app openen.
-<br>
-<br>
+- Open de local repository folder in Android Studio
 
 # Code Contract
 

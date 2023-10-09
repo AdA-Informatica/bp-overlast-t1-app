@@ -5,6 +5,11 @@ import com.mongodb.ConnectionString
 import com.mongodb.MongoClientSettings
 import com.mongodb.client.MongoClient
 import com.mongodb.client.MongoClients
+import com.mongodb.client.MongoCollection
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.bson.Document
 
 class DatabaseController {
@@ -18,10 +23,10 @@ class DatabaseController {
         Log.d("kut", client.toString());
     }
 
-    fun countGemeentes(): Long {
+    fun getGemeentes(): MongoCollection<Document> {
         val database = client.getDatabase("bpoverlast_01")
         val collection = database.getCollection("gemeentes");
-        return collection.countDocuments()
+        return collection;
     }
 
     fun insertUserInput(databaseController: DatabaseController, document: Document) {

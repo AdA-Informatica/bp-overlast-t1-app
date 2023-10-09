@@ -24,9 +24,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launch() {
-            val dc = DatabaseController()
-            println(dc.countGemeentes().toString());
-            dc.close()
         }
     }
 

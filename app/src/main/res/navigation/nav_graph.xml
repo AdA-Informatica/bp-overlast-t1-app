@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/locationFragment">
+    app:startDestination="@id/locationScreen">
 
     <fragment
         android:id="@+id/homeScreen"
@@ -20,4 +20,9 @@
         android:name="nl.paulkros.safespace.screens.LocationFragment"
         android:label="fragment_location"
         tools:layout="@layout/fragment_location" />
+    <fragment
+        android:id="@+id/locationScreen"
+        android:name="nl.paulkros.safespace.screens.PreferencesFragment"
+        android:label="fragment_location_screen"
+        tools:layout="@layout/fragment_preferences" />
 </navigation>

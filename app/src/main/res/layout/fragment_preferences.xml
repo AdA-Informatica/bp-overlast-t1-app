@@ -60,7 +60,8 @@
                 android:layout_height="wrap_content"
                 android:progressDrawable="@drawable/seekbar_style"
                 android:splitTrack="false"
-                android:thumb="@drawable/custom_thumb" />
+                android:thumb="@drawable/custom_thumb"
+                android:min="80"/>
 
             <TextView
                 android:id="@+id/hangjeugdTextview"
@@ -78,7 +79,8 @@
                 android:layout_height="wrap_content"
                 android:progressDrawable="@drawable/seekbar_style"
                 android:splitTrack="false"
-                android:thumb="@drawable/custom_thumb" />
+                android:thumb="@drawable/custom_thumb"
+                android:min="80" />
 
             <TextView
                 android:id="@+id/drugsTextView"
@@ -96,7 +98,8 @@
                 android:layout_height="wrap_content"
                 android:progressDrawable="@drawable/seekbar_style"
                 android:splitTrack="false"
-                android:thumb="@drawable/custom_thumb" />
+                android:thumb="@drawable/custom_thumb"
+                android:min="80" />
 
             <TextView
                 android:id="@+id/zwerverTextView"
@@ -114,7 +117,8 @@
                 android:layout_height="wrap_content"
                 android:progressDrawable="@drawable/seekbar_style"
                 android:splitTrack="false"
-                android:thumb="@drawable/custom_thumb" />
+                android:thumb="@drawable/custom_thumb"
+                android:min="80" />
 
             <TextView
                 android:id="@+id/geluidTextView"
@@ -132,7 +136,8 @@
                 android:layout_height="wrap_content"
                 android:progressDrawable="@drawable/seekbar_style"
                 android:splitTrack="false"
-                android:thumb="@drawable/custom_thumb" />
+                android:thumb="@drawable/custom_thumb"
+                android:min="80" />
 
             <TextView
                 android:id="@+id/inbraakTextView"
@@ -150,7 +155,8 @@
                 android:layout_height="wrap_content"
                 android:progressDrawable="@drawable/seekbar_style"
                 android:splitTrack="false"
-                android:thumb="@drawable/custom_thumb" />
+                android:thumb="@drawable/custom_thumb"
+                android:min="80" />
 
             <TextView
                 android:id="@+id/zakkenrollerTextView"
@@ -168,7 +174,8 @@
                 android:layout_height="wrap_content"
                 android:progressDrawable="@drawable/seekbar_style"
                 android:splitTrack="false"
-                android:thumb="@drawable/custom_thumb" />
+                android:thumb="@drawable/custom_thumb"
+                android:min="80" />
 
             <TextView
                 android:id="@+id/geweldTextView"
@@ -186,7 +193,8 @@
                 android:layout_height="wrap_content"
                 android:progressDrawable="@drawable/seekbar_style"
                 android:splitTrack="false"
-                android:thumb="@drawable/custom_thumb" />
+                android:thumb="@drawable/custom_thumb"
+                android:min="80" />
 
             <TextView
                 android:id="@+id/moordTextView"
@@ -204,7 +212,8 @@
                 android:layout_height="wrap_content"
                 android:progressDrawable="@drawable/seekbar_style"
                 android:splitTrack="false"
-                android:thumb="@drawable/custom_thumb" />
+                android:thumb="@drawable/custom_thumb"
+                android:min="80" />
 
         </LinearLayout>
 

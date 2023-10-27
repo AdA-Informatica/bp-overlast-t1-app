@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
@@ -62,10 +63,29 @@ class LocationFragment : Fragment() {
                         adapter.notifyDataSetChanged()
                         spinner.setSelection(0)
                         Log.d("LocationFragment", gemeenteList.toString())
-                        // TODO CHATGPT
-                        //spinner.onItemSelectedListener --FIX ITEMSSELECTED LISTENER
 
-                        //--> WHEN ITEM SELECTED : Get Selected Municipality --> Soort through the municipalities and find the municipalityItem with the corresponding .gemeente --> start fragment transaction towards ScoreFragment() anbd pass along the corresponding municipalityitem as parameter or bundle :)
+                        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                                if (municipalities != null) {
+                                    val selectedMunicipalityItem = municipalities!![position]
+                                    Log.d("LocationFragment", selectedMunicipalityItem.toString())
+
+                                    locationButton.setOnClickListener {
+                                        val fragment = ScoreFragment()
+                                        val bundle = Bundle()
+                                        bundle.putSerializable("municipality", selectedMunicipalityItem)
+                                        fragment.arguments = bundle
+                                        val transaction = parentFragmentManager.beginTransaction()
+                                        transaction.replace(R.id.fragmentContainerView, fragment)
+                                        transaction.commit()
+                                    }
+                                }
+                            }
+
+                            override fun onNothingSelected(parent: AdapterView<*>?) {
+                                // Handle if nothing is selected (optional)
+                            }
+                        }
                     } else {
                     }
                 }

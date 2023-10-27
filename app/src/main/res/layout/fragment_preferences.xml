@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_blue"
+    android:fitsSystemWindows="true"
+    tools:context=".screens.PreferencesFragment">
+
+    <ImageView
+        android:id="@+id/shade"
+        android:layout_width="376dp"
+        android:layout_height="500dp"
+        android:src="@drawable/white_shade"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pageTitle"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="460dp"
+        android:layout_height="470dp"
+        app:layout_constraintBottom_toBottomOf="@+id/shade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pageTitle"
+        app:layout_constraintVertical_bias="0.4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/pageTitle"
+            app:layout_constraintVertical_bias="0.5">
+
+            <TextView
+                android:id="@+id/verwardTextview"
+                android:layout_width="305dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="Verwarde personen" />
+
+            <SeekBar
+                android:id="@+id/verwardSeekbar"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/seekbar_style"
+                android:splitTrack="false"
+                android:thumb="@drawable/custom_thumb"
+                android:min="80"/>
+
+            <TextView
+                android:id="@+id/hangjeugdTextview"
+                android:layout_width="306dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="Hangjongeren" />
+
+            <SeekBar
+                android:id="@+id/hangjeugdSeekbar"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/seekbar_style"
+                android:splitTrack="false"
+                android:thumb="@drawable/custom_thumb"
+                android:min="80" />
+
+            <TextView
+                android:id="@+id/drugsTextView"
+                android:layout_width="316dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="Drugs en Alcohol" />
+
+            <SeekBar
+                android:id="@+id/drugsSeekbar"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/seekbar_style"
+                android:splitTrack="false"
+                android:thumb="@drawable/custom_thumb"
+                android:min="80" />
+
+            <TextView
+                android:id="@+id/zwerverTextView"
+                android:layout_width="316dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="Zwervers" />
+
+            <SeekBar
+                android:id="@+id/zwerverSeekbar"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/seekbar_style"
+                android:splitTrack="false"
+                android:thumb="@drawable/custom_thumb"
+                android:min="80" />
+
+            <TextView
+                android:id="@+id/geluidTextView"
+                android:layout_width="316dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="Geluidshinder (van evenementen)" />
+
+            <SeekBar
+                android:id="@+id/geluidSeekbar"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/seekbar_style"
+                android:splitTrack="false"
+                android:thumb="@drawable/custom_thumb"
+                android:min="80" />
+
+            <TextView
+                android:id="@+id/inbraakTextView"
+                android:layout_width="316dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="Inbraak en Overvallen" />
+
+            <SeekBar
+                android:id="@+id/inbraakSeekbar"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/seekbar_style"
+                android:splitTrack="false"
+                android:thumb="@drawable/custom_thumb"
+                android:min="80" />
+
+            <TextView
+                android:id="@+id/zakkenrollerTextView"
+                android:layout_width="316dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="Zakkenrollers en Straatroof" />
+
+            <SeekBar
+                android:id="@+id/zakkenrollerSeekbar"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/seekbar_style"
+                android:splitTrack="false"
+                android:thumb="@drawable/custom_thumb"
+                android:min="80" />
+
+            <TextView
+                android:id="@+id/geweldTextView"
+                android:layout_width="316dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="Geweld en Intimidatie" />
+
+            <SeekBar
+                android:id="@+id/geweldSeekbar"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/seekbar_style"
+                android:splitTrack="false"
+                android:thumb="@drawable/custom_thumb"
+                android:min="80" />
+
+            <TextView
+                android:id="@+id/moordTextView"
+                android:layout_width="316dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="Moord" />
+
+            <SeekBar
+                android:id="@+id/moordSeekbar"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/seekbar_style"
+                android:splitTrack="false"
+                android:thumb="@drawable/custom_thumb"
+                android:min="80" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:src="@drawable/backbutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/questionlogo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.003" />
+
+    <TextView
+        android:id="@+id/pageTitle"
+        android:layout_width="242dp"
+        android:layout_height="39dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="In hoeverre tasten de volgende zaken uw veiligheidsgevoel aan?"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.035" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="128dp"
+        android:layout_height="54dp"
+        android:layout_margin="6dp"
+        android:background="@drawable/button"
+        android:text="Opslaan"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scrollView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,12 +29,14 @@ class ScoreFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_score, container, false)
 
+        //We find all the Views and the Layout and asssign them to a variable
         val backButton = view.findViewById<ImageView>(R.id.backButton)
         val gemeente = view.findViewById<TextView>(R.id.locationName)
         val score = view.findViewById<TextView>(R.id.score)
         val layout = view.findViewById<ConstraintLayout>(R.id.scoreLayout)
         val logo = view.findViewById<ImageView>(R.id.scoreLogo)
 
+        //When the backbutton is pressed we start a transaction in the fragmentmanager to head towards the LocationFragment
         backButton.setOnClickListener{
             val fragment = LocationFragment()
             val transaction = parentFragmentManager.beginTransaction()
@@ -42,10 +44,12 @@ class ScoreFragment : Fragment() {
             transaction.commit()
         }
 
+        //We get the municipality name value that was given passed along from the LocationFragment and then change the text property of gemeente to the passed value.
+        //If something wrent wrong with the data passing we display an error
         val municipality = arguments?.getSerializable("municipality") as? MunicipalityItem
         if (municipality != null) {
             gemeente.setText(municipality.gemeente)
-        } else{
+        } else {
             gemeente.setText("Er is iets fout gegaan")
         }
         var latestScore: Score? = null
@@ -56,6 +60,10 @@ class ScoreFragment : Fragment() {
                 }
             }
         }
+
+        //We get the score value that was given passed along from the LocationFragment
+        //We loop through the scores stored inside the MunicipalityItem to find the latest one
+        //Then we check whether  the score falls in a certain range and change the gradient and logo accordingly
         if (latestScore != null) {
             val formattedscore = latestScore.veiligheidsScore.toInt()
             if (formattedscore == 0){

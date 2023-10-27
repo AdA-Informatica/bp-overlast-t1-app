@@ -24,9 +24,9 @@ class HomeFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        val startButton = view.findViewById<Button>(R.id.startButton)
-        val infoButton = view.findViewById<ImageView>(R.id.infoButton)
 
+        //We find the Info Button and add a listener to change towards About Fragment on Click
+        val infoButton = view.findViewById<ImageView>(R.id.infoButton)
         infoButton.setOnClickListener{
             val fragment = AboutFragment()
             val transaction = parentFragmentManager.beginTransaction()
@@ -34,6 +34,8 @@ class HomeFragment : Fragment() {
             transaction.commit()
         }
 
+        //We find the Start Button and add a listener to change towards Preferences Fragment on Click
+        val startButton = view.findViewById<Button>(R.id.startButton)
         startButton.setOnClickListener{
             val preferencesFragment = PreferencesFragment()
             val transaction = parentFragmentManager.beginTransaction()

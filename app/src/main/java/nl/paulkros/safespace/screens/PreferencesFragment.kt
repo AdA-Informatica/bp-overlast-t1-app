@@ -2,7 +2,6 @@ package nl.paulkros.safespace.screens
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -31,9 +30,7 @@ class PreferencesFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_preferences, container, false)
 
-        val saveButton = view.findViewById<Button>(R.id.saveButton)
-        val backButton = view.findViewById<ImageView>(R.id.backButton)
-
+        //We find all the seekerbars and assign them to a variable
         val verwardSeekbar = view.findViewById<SeekBar>(R.id.verwardSeekbar)
         val hangjeugdSeekbar = view.findViewById<SeekBar>(R.id.hangjeugdSeekbar)
         val drugsSeekbar = view.findViewById<SeekBar>(R.id.drugsSeekbar)
@@ -44,6 +41,8 @@ class PreferencesFragment : Fragment() {
         val geweldSeekBar = view.findViewById<SeekBar>(R.id.geweldSeekbar)
         val moordSeekBar = view.findViewById<SeekBar>(R.id.moordSeekbar)
 
+        //We then assign the save button to a variable and when it is clicked we map the seekbar.progress values in a variable
+        val saveButton = view.findViewById<Button>(R.id.saveButton)
         saveButton.setOnClickListener{
             val seekbarValues = mapOf(
                 "verwardPersoon" to verwardSeekbar.progress,
@@ -57,8 +56,10 @@ class PreferencesFragment : Fragment() {
                 "moord" to moordSeekBar.progress
             )
 
+            //We then create an instance of SliderValues and pass the seekbarvalues as a parameter.
+            //In a coroutine we start a POST call and send the slidervalues to the API which in turn stores it in the MongoDB
+            //We start a transaction to head towards the LocationFragment()
             val sendValues = SliderValues(seekbarValues)
-            Log.d("API", seekbarValues.toString())
             val api = APIController()
             lifecycleScope.launch {
                 api.sendPreferences(sendValues)
@@ -69,8 +70,10 @@ class PreferencesFragment : Fragment() {
             transaction.commit()
         }
 
+        //We find the backbutton and attach an OnClicklistener to it.
+        //When pressed we navigate towards the HomeFragment()
+        val backButton = view.findViewById<ImageView>(R.id.backButton)
         backButton.setOnClickListener {
-            Log.d("BackButton", "Pressed")
             val homeFragment = HomeFragment()
             val transaction = parentFragmentManager.beginTransaction()
             transaction.replace(R.id.fragmentContainerView, homeFragment)

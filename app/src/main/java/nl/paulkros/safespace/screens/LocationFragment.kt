@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Spinner
@@ -20,6 +19,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class LocationFragment : Fragment() {
+    //Create an Empty variable that can house a List of <MunicipalityItem>'s
     private var municipalities: List<MunicipalityItem>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,18 +33,22 @@ class LocationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_location, container, false)
-        val api = APIController()
-        val call = api.getMunicipalities()
 
+
+        //We make sure the spinner is found, has the correct ArrayAdapter for the data that is being fetched from the API
+        //We fill the List with a placeholder and set the spinner accordingly
         val gemeenteList = mutableListOf("Gemeente's ophalen...")
-        val backButton = view.findViewById<ImageView>(R.id.backButton)
-        val locationButton = view.findViewById<Button>(R.id.locationButton)
         val spinner = view.findViewById<Spinner>(R.id.spinner)
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, gemeenteList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
         spinner.setSelection(0)
 
+        //We find the locationButton and asssign it to a variable to be used later on
+        val locationButton = view.findViewById<Button>(R.id.locationButton)
+
+        //We find the backButton and add an OnClick to start a transaction to go towards the PreferncesFragment
+        val backButton = view.findViewById<ImageView>(R.id.backButton)
         backButton.setOnClickListener{
             val fragment = PreferencesFragment()
             val transaction = parentFragmentManager.beginTransaction()
@@ -52,6 +56,14 @@ class LocationFragment : Fragment() {
             transaction.commit()
         }
 
+        //We Create an instance of APIController() -> We then get the Municipalities in a call enqueue.
+        //If we get a response we store the response body in the earlier declared municipalities variable.
+        //We fill the gemeenteList with all the gemeente values in the municipalities variable
+        //When a gemeente gets selected from the dropdown we get the corresponding municipalityItem from the municipalities variable and store it in a new one
+        //We then wait to see if the user selects another item or if it will submit through the button
+        //When it submits we start a transaction to go to the Scorescreen and put the selectedMunicipalityItem as a Serializable in the bundle.
+        val api = APIController()
+        val call = api.getMunicipalities()
         call.enqueue(object : Callback<List<MunicipalityItem>> {
             override fun onResponse(call: Call<List<MunicipalityItem>>, response: Response<List<MunicipalityItem>>) {
                 if (response.isSuccessful) {
@@ -62,13 +74,11 @@ class LocationFragment : Fragment() {
                         adapter.addAll(gemeenteList)
                         adapter.notifyDataSetChanged()
                         spinner.setSelection(0)
-                        Log.d("LocationFragment", gemeenteList.toString())
 
                         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                                 if (municipalities != null) {
                                     val selectedMunicipalityItem = municipalities!![position]
-                                    Log.d("LocationFragment", selectedMunicipalityItem.toString())
 
                                     locationButton.setOnClickListener {
                                         val fragment = ScoreFragment()
@@ -83,15 +93,20 @@ class LocationFragment : Fragment() {
                             }
 
                             override fun onNothingSelected(parent: AdapterView<*>?) {
-                                // Handle if nothing is selected (optional)
+
                             }
                         }
                     } else {
                     }
                 }
             }
-
+            //If there's no response or a failure we change the placeholder to an error message
             override fun onFailure(call: Call<List<MunicipalityItem>>, t: Throwable) {
+                val gemeenteList = mutableListOf("Er is een fout opgetreden: $t")
+                adapter.clear()
+                adapter.addAll(gemeenteList)
+                adapter.notifyDataSetChanged()
+                spinner.setSelection(0)
                 Log.d("LocationFragment", t.toString())
             }
         })

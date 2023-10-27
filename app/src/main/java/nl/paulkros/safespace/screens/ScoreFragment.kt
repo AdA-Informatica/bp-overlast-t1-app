@@ -19,7 +19,9 @@ class ScoreFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_score, container, false)
+        val view = inflater.inflate(R.layout.fragment_score, container, false)
+
+        return view
     }
 
     companion object {

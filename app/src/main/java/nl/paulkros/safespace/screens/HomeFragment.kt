@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import nl.paulkros.safespace.R
 
 class HomeFragment : Fragment() {
@@ -20,7 +21,18 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        val startButton = view.findViewById<Button>(R.id.startButton)
+
+        startButton.setOnClickListener{
+            val preferencesFragment = PreferencesFragment()
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragmentContainerView, preferencesFragment)
+            transaction.commit()
+        }
+
+        return view
     }
 
     companion object {
